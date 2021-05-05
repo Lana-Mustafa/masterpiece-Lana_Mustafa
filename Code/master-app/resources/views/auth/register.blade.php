@@ -245,7 +245,7 @@ body {
 <div style=" background-color: #F5F4F0; padding-top:2rem; padding-bottom:0"  class="mad-breadcrumb">
     <div class="container">
       <h1 class="mad-page-title mad-title-with-line">Register As Buyer</h1>
-      <nav class="mad-breadcrumb-path"><span><a href="index.html">Home</a></span>/<span>Register Form</span>
+      <nav class="mad-breadcrumb-path"><span><a href={{route('landingPage')}}>Home</a></span>/<span>Register Form</span>
       </nav>
     </div>
   </div>  

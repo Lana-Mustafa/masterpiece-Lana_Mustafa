@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard PRO by Creative Tim
+    Kraftangle Dashboard 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Extra details for Live View on GitHub Pages -->
@@ -52,7 +52,7 @@
     <div class="container">
       <div class="navbar-wrapper">
         <a class="navbar-brand" href="#pablo">
-          <i class="material-icons">dashboard</i> Dashboard ||@yield('title')</a>
+          <i class="material-icons">dashboard</i> Kraftangle Dashboard </a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
@@ -101,11 +101,12 @@
         <div class="container justify-content-center">
           
           <div class="copyright">
+            Copyright Kraftangle 
             &copy;
             <script>
               document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </script> 
+            All Rights Reserved.
           </div>
         </div>
       </footer>

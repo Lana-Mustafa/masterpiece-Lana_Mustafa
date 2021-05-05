@@ -23,7 +23,7 @@ class SupplierproductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('supplier_id',Auth::user()->id)->orderByDesc('id')->get();
+        $products = Product::where('supplier_id',Auth::user()->id)->orderByDesc('id')->paginate(6);
         return view('customized_dashboard.product.index', compact('products'));
     }
 
@@ -61,7 +61,8 @@ class SupplierproductController extends Controller
                          'sale_price',
                          'product_qty',
                          'gift_id',
-                         'subcategory_id'
+                         'subcategory_id',
+                         'category_id'
                                         ]));
             $product->product_img = $file_name;
             $product->supplier_id = $supplier->id;
@@ -123,7 +124,6 @@ class SupplierproductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $product       = Product::find($id);
         if ($request->hasFile('product_img')) {
             //save photo in to folder
@@ -140,6 +140,7 @@ class SupplierproductController extends Controller
         $product->sale_price             = $request->input('sale_price');
         $product->product_description    = $request->input('product_description');
         $product->product_qty            = $request->input('product_qty');
+        $product->category_id            = $request->input('category_id');
         $product->subcategory_id         = $request->input('subcategory_id');
         $product->gift_id                = $request->input('gift_id');
         $product->save();
@@ -193,7 +194,7 @@ class SupplierproductController extends Controller
             'product_qty'          => 'required',
             'gift_id'              => 'required',
             'subcategory_id'       => 'required',
-            'select-category'       => 'required',
+            'category_id'          => 'required',
         
         ]);
     }

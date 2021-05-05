@@ -2,14 +2,14 @@
 
 @section('style')
   
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <style>
 .form-select{
   border: none;
   border-radius: 0%;
   border-bottom:1px solid #6c757d;
   color:  #6c757d !important;
- 
+  width: 14em;
 }
 
 </style>
@@ -38,7 +38,7 @@
                         <h4 class="title" style="color:#9C9C9C" >Product Image</h4>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail">
-                            <img src="/images/products/{{$product->product_img}}" alt="...">
+                            <img src="/images/products/{{$product->product_img}}" alt="{{$product->product_name}}">
                           </div>
                           <div class="fileinput-preview fileinput-exists thumbnail"></div>
                           <div>
@@ -93,9 +93,7 @@
                        class="form-control "
                        row=3
                        required="true"
-                       >
-                       {{$product->product_description}}
-                    </textarea>
+                       >{{$product->product_description}}</textarea>
                        
                   </div>
                   @error('product_description')
@@ -173,14 +171,14 @@
               <div class="row mt-3">
                 <label class="col-md-3 col-form-label">Category</label>
                 <div class="col-lg-5 col-md-6 col-sm-3">
-                  <select name="select-category" class="selectpicker" data-style="select-with-transition" value="{{ old('select-category') }}"  title="Category" data-size="7" required="true">
+                  <select name="category_id" class="selectpicker" data-style="select-with-transition" value="{{ old('category_id') }}"  title="Category" data-size="7" required="true">
                              @foreach ($categories as $category)
                                  <option  value="{{$category->id}}" {{ ($product->subcategory->category->id == $category->id) ? 'selected' : '' }} >{{$category->category_name}} </option>
                              @endforeach
                     
                   </select>
                 </div>
-                @error('select-category')
+                @error('category_id')
                 <div class="text-danger mt-2">{{ $message }}</div>   
                 @enderror
               </div>
@@ -188,11 +186,11 @@
               <div class="row mt-3">
                 <label class="col-md-3 col-form-label">SubCategory</label>
                 <div class="col-lg-5 col-md-6 col-sm-3">
-                  <select hover-overlay name="subcategory_id"  class="form-select form-select-sm" >
+                  <select name="subcategory_id"  class="form-select form-select-sm" >
                              
-                    <option selected hidden >{{$product->subcategory->subcategory_name}}</option>
+                    <option value="{{$product->subcategory->id}}" selected hidden >{{$product->subcategory->subcategory_name}}</option>
 
-                  </select>
+                  </select><i class="fa fa-sort-down"></i>
                 </div>
                 @error('subcategory_id')
                 <div class="text-danger mt-2">{{ $message }}</div>   
@@ -247,7 +245,7 @@
 
 <script>
     $(document).ready(function() {
-        $('select[name="select-category"]').on('change', function() {
+        $('select[name="category_id"]').on('change', function() {
             // console.log("hi")
             var category_id = $(this).val();
             if (category_id) {

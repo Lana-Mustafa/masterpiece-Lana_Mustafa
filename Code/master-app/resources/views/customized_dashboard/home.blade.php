@@ -7,7 +7,7 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                   
-                    <img class="img" src="/images/suppliers/{{Auth::user()->img}}" />
+                    <img alt="supplier_img" class="img" src="/images/suppliers/{{Auth::user()->img}}" />
                   
                 </div>
                 <div class="card-body">

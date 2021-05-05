@@ -3,11 +3,13 @@
 
 <head>
   <!--================ Basic page needs ================-->
-  <title>Kunstwerk | Index</title>
+  <title>Kraftangle | Index</title>
   <meta charset="UTF-8">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
+  <meta name="author" content="Kraftangle" />
+  <!--the viewport to make your website look good on all devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content=" an e-commerce website for marketing a wide and varied collection of handmade products " />
+  <meta name="keyword" content="e-commerce ,handmade,craft" />
   <!--================ Mobile specific metas ================-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--================ Favicon ================-->
@@ -23,7 +25,6 @@
   <link rel="stylesheet" href="{{ asset('public-assets/vendors/monkeysan-tooltip/monkeysan-jquery-tooltip.css')}}">
   <link rel="stylesheet" href="{{ asset('public-assets/vendors/fancybox/jquery.fancybox.min.css')}}">
   <link rel="stylesheet" href="{{ asset('public-assets/vendors/arcticmodal/jquery.arcticmodal-0.3.css')}}">
-
   <link rel="stylesheet" href="{{ asset('public-assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('public-assets/css/animate.min.css')}}">
   <!--================ Theme CSS ================-->
@@ -95,68 +96,27 @@
         <!--================ Column ================-->
         <div class="mad-header-col">
           <div class="mad-search-area">
-            <form class="mad-search-form">
-              <button type="button" data-arctic-modal="#search-modal" class="mad-icon mad-seacrh-click"><i
-                  class="icon licon-magnifier"></i></button>
+            <form method="post" action={{route('shop')}} class="mad-search-form">
+              @csrf
+              <buttont type="submit" class="mad-icon "><i
+                  class="icon licon-magnifier"></i></buttont>
 
-              <input type="text" placeholder="Search">
+              <input name ="q" type="text" placeholder="Search">
             </form>
           </div>
         </div>
         <!--================ End of Column ================-->
         <!--================ Column ================-->
         <div class="mad-header-col align-center">
-          <a href="index.html" class="mad-ln--independent"><img src="{{ asset('public-assets/images/logo3.png')}}" alt=""></a>
+          <a href={{route('landingPage')}} class="mad-ln--independent"><img src="/images/Logo.png" alt="logo"></a>
         </div>
         <!--================ End of Column ================-->
         <!--================ Column ================-->
         <div class="mad-header-col">
           <div class="mad-header-items">
             <div class="mad-dropdown">
-              <button type="button" class="mad-icon mad-dropdown-title"><i class="icon licon-cart-empty"></i></button>
-              <div class="shopping-cart mad-dropdown-element mad-dropdown-element--x-left">
-                  <div class="mad-products mad-product-small">
-                    <div class="mad-col">
-                      <!-- Product -->
-                      <div class="mad-product">
-                        <button class="mad-close-item"><i class="licon-cross-circle"></i></button>
-                        <a href="#" class="mad-product-image">
-                          <img src="{{ asset('public-assets/images/70x70_product1.jpg') }}" alt="">
-                        </a>
-                        <!-- product-info -->
-                        <div class="mad-product-description">
-                          <h5 class="mad-product-title"><a href="#">Cosy Toddler Pillow</a></h5>
-                          <span class="mad-product-price">1x$57.00</span>
-                        </div>
-                        <!--/ product-info -->
-                      </div>
-                      <!-- End of Product -->
-                    </div>
-                    <div class="mad-col">
-                      <!-- Product -->
-                      <div class="mad-product">
-                        <button class="mad-close-item"><i class="licon-cross-circle"></i></button>
-                        <a href="#" class="mad-product-image">
-                          <img src="{{ asset('public-assets/images/70x70_product2.jpg') }}" alt="">
-                        </a>
-                        <!-- product-info -->
-                        <div class="mad-product-description">
-                          <h5 class="mad-product-title"><a href="#">Steel Coffee Table</a></h5>
-                          <span class="mad-product-price">1x$499.00</span>
-                        </div>
-                        <!--/ product-info -->
-                      </div>
-                      <!-- End of Product -->
-                    </div>
-                  </div>
-                  <div class="sc-footer">
-                    <div class="subtotal">Subtotal: <span class="total-price">$556.00</span></div>
-                    <div class="btns">
-                      <a href="#" class="btn btn-style-4 btn-small">View Cart</a>
-                      <a href="#" class="btn btn-small">Checkout</a>
-                    </div>
-                  </div>
-                </div>
+              <a href={{route('cart.show')}} type="button" class="mad-icon mad-dropdown-title"><i class="icon licon-cart-empty">({{ session()->has('cart') ? session()->get('cart')->totalQty : '0'}})</i></a>
+              
             </div>
             <div>
               @auth
@@ -168,199 +128,27 @@
         <!--================ End of Column ================-->
       </div>
       <!--================ End of Section ================-->
+      
       <!--================ Navigation ================-->
-      <nav class="mad-navigation-container mad-header-section--sticky-xl">
-        <ul class="mad-navigation mad-navigation--vertical-sm">
-          <li class="menu-item menu-item-has-children current-menu-item"><a href="index.html"
-              class="mad-ln--independent">Home</a>
-            <!--================ Sub Menu ================-->
-            <ul class="sub-menu">
-              <li class="menu-item current-menu-item"><a href="index.html" class="mad-ln--independent">Handmade
-                  Marketplace</a>
-              </li>
-              <li class="menu-item"><a href="home_2.html" class="mad-ln--independent">Handmade Jewelry</a>
-              </li>
-              <li class="menu-item"><a href="home_3.html" class="mad-ln--independent">Handmade Furniture</a>
-              </li>
-            </ul>
-            <!--================ End of Sub Menu ================-->
-          </li>
-          <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Jewelry & Accessories</a></li>
-          <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Clothing & Shoes</a></li>
-          <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Home & Living</a></li>
-          <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Toys & Entertainment</a></li>
-          <li class="menu-item menu-item-has-children"><a href="pages_about_v1.html" class="mad-ln--independent">Pages</a>
-            <!--================ Sub Menu ================-->
-            <ul class="sub-menu">
-              <li class="menu-item"><a href="pages_about_v1.html" class="mad-ln--independent">About Us v1</a>
-              </li>
-              <li class="menu-item"><a href="pages_about_v2.html" class="mad-ln--independent">About Us v2</a>
-              </li>
-              <li class="menu-item"><a href="pages_team.html" class="mad-ln--independent">Our Team</a>
-              </li>
-              <li class="menu-item"><a href="pages_sell.html" class="mad-ln--independent">Sell on Kunstwerk</a>
-              </li>
-              <li class="menu-item"><a href="pages_vendors.html" class="mad-ln--independent">Vendors</a>
-              </li>
-              <li class="menu-item"><a href="pages_store_v1.html" class="mad-ln--independent">Vendor Store v1</a>
-              </li>
-              <li class="menu-item"><a href="pages_store_v2.html" class="mad-ln--independent">Vendor Store v2</a>
-              </li>
-              <li class="menu-item"><a href="pages_contact_v1.html" class="mad-ln--independent">Contact v1</a>
-              </li>
-              <li class="menu-item"><a href="pages_contact_v2.html" class="mad-ln--independent">Contact v2</a>
-              </li>
-              <li class="menu-item"><a href="pages_coming_soon.html" class="mad-ln--independent">Coming Soon Page</a>
-              </li>
-              <li class="menu-item"><a href="pages_404.html" class="mad-ln--independent">404 Page</a>
-              </li>
-            </ul>
-            <!--================ End of Sub Menu ================-->
-          </li>
-          <li class="menu-item menu-item-has-children mega-menu"><a href="elements_alert_boxes_buttons.html"
-              class="mad-ln--independent">Features</a>
-            <!--================ Sub Menu ================-->
-            <ul class="sub-menu">
-              <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Elements
-                  1</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="elements_accordions_toggles.html" class="mad-ln--independent">Accordions
-                      &amp; Toggles</a></li>
-                  <li class="menu-item"><a href="elements_alert_boxes_buttons.html" class="mad-ln--independent">Alert
-                      Boxes
-                      &amp; Buttons</a></li>
-                  <li class="menu-item"><a href="elements_banners.html" class="mad-ln--independent">Banners</a>
-                  </li>
-                  <li class="menu-item"><a href="elements_call_to_actions.html" class="mad-ln--independent">Call
-                      to
-                      Actions
-                      and Dividers</a></li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children current-menu-item"><a href="#" class="mad-ln--independent">Elements
-                  2</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="elements_counters_countdowns.html" class="mad-ln--independent">Counters
-                      and Countdown</a></li>
-                  <li class="menu-item"><a href="elements_icon_boxes.html" class="mad-ln--independent">Icon
-                      Boxes</a>
-                  </li>
-                  <li class="menu-item"><a href="elements_image_boxes.html" class="mad-ln--independent">Image
-                      Boxes</a>
-                  </li>
-                  <li class="menu-item"><a href="elements_partners.html" class="mad-ln--independent">Partners</a></li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children current-menu-item"><a href="#" class="mad-ln--independent">Elements
-                  3</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="elements_pricing_table.html" class="mad-ln--independent">Pricing
-                      Tables</a></li>
-                  <li class="menu-item"><a href="elements_progress_tables_charts.html" class="mad-ln--independent">Progress
-                      Bars and Tables</a></li>
-                  <li class="menu-item"><a href="elements_tabs_tours.html" class="mad-ln--independent">Tabs and
-                      Tour
-                      Sections</a></li>
-                  <li class="menu-item"><a href="elements_testimonials.html" class="mad-ln--independent">Testimonials</a></li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Typography</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="elements_dropcaps_blockquotes.html" class="mad-ln--independent">Dropcaps
-                      &amp; Blockquotes</a></li>
-                  <li class="menu-item"><a href="elements_headings_and_paragraphs.html" class="mad-ln--independent">Headings
-                      &amp; Paragraphs</a></li>
-                  <li class="menu-item"><a href="elements_highlights_tooltips_listings.html"
-                      class="mad-ln--independent">Highlights, Tooltips and Listings</a></li>
-                  <li class="menu-item"><a href="rtl/index.html" class="mad-ln--independent">RTL Version</a>
-                  </li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Header
-                  Layouts</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="index.html" class="mad-ln--independent">Header v1</a></li>
-                  <li class="menu-item"><a href="home_2.html" class="mad-ln--independent">Header v2</a></li>
-                  <li class="menu-item"><a href="home_3.html" class="mad-ln--independent">Header v3</a></li>
-                  <li class="menu-item"><a href="pages_about_v1.html" class="mad-ln--independent">Header v4</a></li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="#" class="mad-ln--independent">Footer
-                  Layouts</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="index.html" class="mad-ln--independent">Footer v1</a></li>
-                  <li class="menu-item"><a href="home_2.html" class="mad-ln--independent">Footer v2</a></li>
-                  <li class="menu-item"><a href="home_3.html" class="mad-ln--independent">Footer v3</a></li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-            </ul>
-            <!--================ End of Sub Menu ================-->
-          </li>
-          <li class="menu-item menu-item-has-children"><a href="blog_classic_v1.html"
-              class="mad-ln--independent">Blog</a>
-            <!--================ Sub Menu ================-->
-            <ul class="sub-menu">
-              <li class="menu-item menu-item-has-children"><a href="blog_classic_v1.html" class="mad-ln--independent">Classic</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="blog_classic_v1.html" class="mad-ln--independent">Variant 1</a>
-                  </li>
-                  <li class="menu-item"><a href="blog_classic_v2.html" class="mad-ln--independent">Variant 2</a>
-                  </li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="blog_classic_v1.html"
-                  class="mad-ln--independent">Grid</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="blog_grid_v1.html" class="mad-ln--independent">Variant 1</a>
-                  </li>
-                  <li class="menu-item"><a href="blog_grid_v2.html" class="mad-ln--independent">Variant 2</a>
-                  </li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="blog_classic_v1.html"
-                  class="mad-ln--independent">Masonry</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="blog_masonry_v1.html" class="mad-ln--independent">Variant 1</a>
-                  </li>
-                  <li class="menu-item"><a href="blog_masonry_v2.html" class="mad-ln--independent">Variant 2</a>
-                  </li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-              <li class="menu-item menu-item-has-children"><a href="blog_classic_v1.html"
-                  class="mad-ln--independent">Single Blog Post</a>
-                <!--================ Sub Menu ================-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="blog_single_v1.html" class="mad-ln--independent">Variant 1</a>
-                  </li>
-                  <li class="menu-item"><a href="blog_single_v2.html" class="mad-ln--independent">Variant 2</a>
-                  </li>
-                </ul>
-                <!--================ End of Sub Menu ================-->
-              </li>
-            </ul>
-            <!--================ End of Sub Menu ================-->
-          </li>
-        </ul>
-      </nav>
-      <!--================ End of Navigation ================-->
+<nav class="mad-navigation-container mad-header-section--sticky-xl">
+  <ul class="mad-navigation mad-navigation--vertical-sm">
+    @foreach ($categories as $category)
+    <li class="menu-item menu-item-has-children"><a href={{route('shopByCategory',$category->id)}} class="mad-ln--independent">{{$category->category_name}}</a>
+      <!--================ Sub Menu ================-->
+      <ul class="sub-menu">
+        @foreach ($category->subcategories as $subcategory)
+        <li class="menu-item"><a href={{route('shopBySubcategory',$subcategory->id)}} class="mad-ln--independent">{{$subcategory->subcategory_name}}</a>
+        </li>
+        @endforeach
+      </ul>
+      <!--================ End of Sub Menu ================-->
+    </li>               
+    @endforeach
+          
+   
+  </ul>
+</nav>
+<!--================ End of Navigation ================--> 
     </header>
     <!--================ End of Header ================-->
    
@@ -370,24 +158,29 @@
    
     <!--================ Footer ================-->
     <footer id="mad-footer" class="mad-footer">
-      <img class="svg" src="{{ asset('public-assets/images/background_pattern.svg') }}" alt="">
+      <img class="svg" src="{{ asset('public-assets/images/background_pattern.svg') }}" alt="footer background">
       <!--================ Footer row ================-->
       <div class="mad-footer-main">
         <div class="container">
           <div class="row">
-            <div class="col-lg-2 col-sm-6">
+            <div class="col-lg-1 col-sm-6"></div>             
+            <div class="col-lg-4 col-sm-6">
               <!--================ Widget ================-->
               <section>
-                <h6 class="mad-widget-title">About</h6>
-                <nav class="vr-list mad-links-white">
-                  <ul>
-                    <li><a href="#">What is Kunstwerk</a></li>
-                    <li><a href="#">Sell on Kunstwerk</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                  </ul>
-                </nav>
+                <h6 class="mad-widget-title">
+                   <a href={{route('landingPage')}} class="mad-ln--independent mad-logo">
+                      <img src="/images/transparentLogo.png" alt="Logo">
+                    </a>
+                </h6>
+                <div class="mad-our-info" style="text-align: justify; font-size:1rem">
+                <p >An Online Handmade Store to provide the Opportunity 
+                  for Local Artists to spread their Own Unique Message 
+                  via our Easy-to-Use Online Platform.
+                  Although our sellers come from a variety of backgrounds,
+                  cultures, and customs, they all share one common thread: 
+                  they are All Highly Skilled Artisans following their 
+                  Passions.</p>
+                </div>
               </section>
               <!--================ End of Widget ================-->
             </div>
@@ -397,10 +190,9 @@
                 <h6 class="mad-widget-title">Categories</h6>
                 <nav class="vr-list mad-links-white">
                   <ul>
-                    <li><a href="#">Jewellery & Accessories</a></li>
-                    <li><a href="#">Clothing & Shoes</a></li>
-                    <li><a href="#">Home & Living</a></li>
-                    <li><a href="#">Toys & Entertainment</a></li>
+                    @foreach ($categories as $category)                    
+                    <li><a href={{route('shopByCategory',$category->id)}}>{{$category->category_name}}</a></li>
+                    @endforeach
                   </ul>
                 </nav>
               </section>
@@ -409,16 +201,28 @@
             <div class="col-lg-2 col-sm-6">
               <!--================ Widget ================-->
               <section>
-                <h6 class="mad-widget-title">Support</h6>
-                <nav class="vr-list mad-links-white">
-                  <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Delivery & Returns</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Help and FAQs</a></li>
-                    <li><a href="#">Login</a></li>
-                  </ul>
-                </nav>
+                <h6 class="mad-widget-title">Contact Us</h6>
+                <div class="mad-our-info">
+                  <!--================ info Box ================-->
+                  <article class="mad-info-block">
+                    <i class="mad-info-icon licon-map-marker"></i>
+                    <p>Amman , Joradn </p>
+                  </article>
+                  <!--================ End of info Box ================-->
+                  <!--================ info Box ================-->
+                  <article class="mad-info-block">
+                    <i class="mad-info-icon licon-telephone"></i>
+                    <p>+962-77-7777777</p>
+                  </article>
+                  <!--================ End of info Box ================-->
+                  <!--================ info Box ================-->
+                  <article class="mad-info-block">
+                    <i class="mad-info-icon licon-at-sign"></i>
+                    <a href="#" class="link-color-3">mail@kraftangle.com</a>
+                  </article>
+                  <!--================ End of info Box ================-->
+                </div>
+               
               </section>
               <!--================ End of Widget ================-->
             </div>
@@ -437,18 +241,7 @@
               </section>
               <!--================ End of Widget ================-->
             </div>
-            <div class="col-lg-4 col-sm-6">
-              <!--================ Widget ================-->
-              <section>
-                <h6 class="mad-widget-title">Join Our Newsletter</h6>
-                <p class="small">Get the latest updates on new products and upcoming sales.</p>
-                <form class="mad-newsletter-form">
-                  <input type="email" name="email" placeholder="Enter email address">
-                  <button type="submit"><i class="icon licon-envelope"></i></button>
-                </form>
-              </section>
-              <!--================ End of Widget ================-->
-            </div>
+            <div class="col-lg-1 col-sm-6"></div>            
           </div>
         </div>
       </div>
@@ -456,11 +249,11 @@
       <!--================ Footer row ================-->
       <div class="mad-footer-bottom">
         <div class="container">
-          <div class="row justify-content-between align-items-center">
-            <div class="col">
-              <p class="small">Copyright Kunstwerk © 2019. All Rights Reserved.</p>
-            </div>
-            <div class="col align-right"><a href="#"><img src="{{ asset('public-assets/images/payment.png') }}" alt=""></a></div>
+          <div class="row justify-content-center align-items-center">
+            
+              <p class="small">Copyright Kraftangle © 2019. All Rights Reserved.</p>
+            
+            
           </div>
         </div>
       </div>
@@ -476,11 +269,16 @@
   <script src="{{ asset('public-assets/vendors/monkeysan.tabs.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/monkeysan-tooltip/monkeysan-jquery-tooltip.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/monkeysan.jquery.nav.1.0.min.js') }}"></script>
+  <script src="{{ asset('public-assets/vendors/mad.customselect.js')}}"></script>
   <script src="{{ asset('public-assets/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/arcticmodal/jquery.arcticmodal-0.3.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/fancybox/jquery.fancybox.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/monkeysan.validator.min.js') }}"></script>
+  <script src="{{ asset('public-assets/vendors/tweetie/tweetie.min.js') }}"></script>
+  <script src="{{ asset('public-assets/vendors/elevatezoom.min.js') }}"></script>
+  <script src="{{ asset('public-assets/vendors/monkeysan.tabs.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/handlebars-v4.0.5.min.js') }}"></script>
+  <script src="{{ asset('public-assets/vendors/jquery-ui/jquery-ui.min.js') }}"></script>
   <script src="{{ asset('public-assets/vendors/retina.min.js') }}"></script>
   <script src="{{ asset('public-assets/js/modules/mad.alert-box.min.js') }}"></script>
   <script src="{{ asset('public-assets/js/modules/mad.newsletter-form.min.js') }}"></script>
@@ -495,7 +293,7 @@
               </script>
               @endif
 
-
+  @yield('script')
 </body>
 
 </html>

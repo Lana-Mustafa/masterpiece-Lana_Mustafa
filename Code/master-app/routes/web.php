@@ -14,6 +14,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,25 +30,38 @@ use App\Http\Controllers\UserProfileController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
+/* Route::get('/test', function () {
     return view('layouts.public');
-});
-Route::get('/test1', function () {
-    return view('public.index');
-});
-
-
-
-
-/* Route::get('/', function () {
-    return view('layouts.dashboard');
 }); */
-/* Route::resource('admins', AdminController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('subcategories', SubcategoryController::class); */
+Route::get('/test', function () {
+    return view('public_site.checkout');
+});
+
+/*Public Routes*/
+Route::get('/',[PublicController::class,'index'])->name('landingPage');
+Route::get('/shop',[PublicController::class,'showShop'])->name('shop');
+Route::post('/shop',[PublicController::class,'search'])->name('shop');
+
+Route::get('/shopByCategory/{id}',[PublicController::class,'showShopByCategory'])->name('shopByCategory');
+Route::get('/shopBySubcategory/{id}',[PublicController::class,'showShopBySubcategory'])->name('shopBySubcategory');
+Route::get('/singleProduct/{id}',[PublicController::class,'showSingleProductPage'])->name('singleProductPage');
+
+Route::get('/sellers',[PublicController::class,'showSellers'])->name('sellers');
+Route::get('/sellers/{id}',[PublicController::class,'showSeller'])->name('seller');
+
+Route::get('/addToCart/{product}',[PublicController::class,'addToCart'])->name('cart.add');
+Route::get('/shopping-cart',[PublicController::class,'showCart'])->name('cart.show');
+Route::get('/checkout/{amount}',[PublicController::class,'checkout'])->name('cart.checkout')->middleware('auth');
+Route::post('/charge',[PublicController::class,'charge'])->name('cart.charge');
+Route::delete('/cartproducts/{cartproduct}',[PublicController::class,'destroy'])->name('cartproduct.remove');
+Route::put('/cartproducts/{cartproduct}',[PublicController::class,'update'])->name('cartproduct.update');
+
+
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/order/{id}', [App\Http\Controllers\HomeController::class, 'showOrder'])->name('order.show');
 
 // login Routes for Admin
 Route::get('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm']);
@@ -75,6 +90,7 @@ Route::group(["prefix" => "admin" , "middleware" =>"assign.guard:admin,admin/log
     Route::resource('subcategories', SubcategoryController::class);
     Route::resource('suppliers', SupplierController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('orders', OrderController::class);
     Route::get('showSubcategories/{id}',[ProductController::class,'showSubcategory']);
     Route::resource('users', UserController::class);
     Route::get('/gallery/{id}', [ ProductController::class, 'gallery'])->name('gallery.show');

@@ -1,8 +1,6 @@
 @extends('layouts.auth_dashboard')
 
-@section('title')
-Login Page   
-@endsection
+
 
 @section('content')
 <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('{{ asset('dashboard-assets/img/login.jpg')}}'); background-size: cover; background-position: top center;">

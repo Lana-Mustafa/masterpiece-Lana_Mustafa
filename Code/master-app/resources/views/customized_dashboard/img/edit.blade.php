@@ -23,7 +23,7 @@
                         <h4 class="title" style="color:#9C9C9C" >Product Image</h4>
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                           <div class="fileinput-new thumbnail">
-                            <img src="/images/products/{{$img->name}}" alt="...">
+                            <img src="/images/products/{{$img->name}}" alt="{{$img->name}}">
                           </div>
                           <div class="fileinput-preview fileinput-exists thumbnail"></div>
                           <div>

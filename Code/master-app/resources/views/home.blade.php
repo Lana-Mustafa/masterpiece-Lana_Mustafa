@@ -39,7 +39,7 @@
 <div class="mad-breadcrumb">
     <div class="container">
       <h1 class="mad-page-title mad-title-with-line">My Account</h1>
-      <nav class="mad-breadcrumb-path"><span><a href="index.html">Home</a></span>/<span>My Account</span>
+      <nav class="mad-breadcrumb-path"><span><a href={{route('landingPage')}}>Home</a></span>/<span>My Account</span>
       </nav>
     </div>
   </div>
@@ -88,184 +88,34 @@
                   <tr>
                     <th class="order-number">Order #</th>
                     <th class="order-date">Date</th>
-                    <th>Status</th>
+                    <th class="order-date">Address</th>
                     <th>Total</th>
                     <th class="order-view"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td data-cell-title="Order #">12345</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$5.99</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
-                  <tr>
-                    <td data-cell-title="Order #">12346</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$31.30</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
-                  <tr>
-                    <td data-cell-title="Order #">12347</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$96.27</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
+                 @foreach ($orders as $order)
+                 <tr>
+                  <td data-cell-title="Order #">{{$order->id}}</td>
+                  <td data-cell-title="Date">{{$order->created_at}}</td>
+                  <td data-cell-title="Date">{{$order->address}}</td>
+                  <td data-cell-title="Total">${{$order->cart->totalPrice}}</td>
+                  <td><a href={{route('order.show', $order->id)}} class="link-color-3">VIEW</a></td>
+                </tr>  
+                 @endforeach
+                  
+                  
                 </tbody>
               </table>
             </div>
               </div>
             </div>
           </div>
-          <!-- <div class="content-element-2">
-            <h3 class="mad-page-title">Order History</h3>
-            <div class="mad-table-wrap mad-history-table">
-              <table class="mad-table--responsive-md">
-                <thead>
-                  <tr>
-                    <th class="order-number">Order #</th>
-                    <th class="order-date">Date</th>
-                    <th>Status</th>
-                    <th>Total</th>
-                    <th class="order-view"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-cell-title="Order #">12345</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$5.99</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
-                  <tr>
-                    <td data-cell-title="Order #">12346</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$31.30</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
-                  <tr>
-                    <td data-cell-title="Order #">12347</td>
-                    <td data-cell-title="Date">December 17, 2019</td>
-                    <td data-cell-title="Status">Pending</td>
-                    <td data-cell-title="Total">$96.27</td>
-                    <td><a href="#" class="link-color-3">VIEW</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div> -->
+         
           </div>
          
         </main>
-        <!-- <aside id="mad-sidebar" class="mad-sidebar mad-sbr col-xl-3 col-lg-4">
-          <div class="mad-widget">
-            <div class="mad-loc-input">
-              <input type="text" placeholder="Search">
-              <button><i class="icon licon-magnifier"></i></button>
-            </div>
-          </div>
-          <div class="mad-widget">
-            <h6 class="mad-widget-title">Categories</h6>
-            <ul class="mad-category-list mad-slide-menu">
-              <li><a href="javascript: void(0)" class="mad-slide"><span>Clothing & Shoes</span><span>346</span></a>
-                <ul class="mad-slide-content">
-                  <li><a href="#"><span>Stuffed Toys</span><span>54</span></a></li>
-                  <li><a href="#"><span>Shapes & Colors</span><span>48</span></a></li>
-                  <li><a href="#"><span>Numbers & Letters</span><span>29</span></a></li>
-                  <li><a href="#"><span>Memory & Matching</span><span>80</span></a></li>
-                  <li><a href="#"><span>Christmas</span><span>31</span></a></li>
-                  <li><a href="#"><span>Busy Books & Pads</span><span>55</span></a></li>
-                </ul>
-              </li>
-              <li><a href="javascript: void(0)" class="mad-slide"><span>Jewellery & Accessories</span><span>655</span></a>
-                <ul class="mad-slide-content">
-                  <li><a href="#"><span>Stuffed Toys</span><span>54</span></a></li>
-                  <li><a href="#"><span>Shapes & Colors</span><span>48</span></a></li>
-                  <li><a href="#"><span>Numbers & Letters</span><span>29</span></a></li>
-                  <li><a href="#"><span>Memory & Matching</span><span>80</span></a></li>
-                  <li><a href="#"><span>Christmas</span><span>31</span></a></li>
-                  <li><a href="#"><span>Busy Books & Pads</span><span>55</span></a></li>
-                </ul>
-              </li>
-              <li><a href="javascript: void(0)" class="mad-slide"><span>Home & Living</span><span>1291</span></a>
-                <ul class="mad-slide-content">
-                  <li><a href="#"><span>Stuffed Toys</span><span>54</span></a></li>
-                  <li><a href="#"><span>Shapes & Colors</span><span>48</span></a></li>
-                  <li><a href="#"><span>Numbers & Letters</span><span>29</span></a></li>
-                  <li><a href="#"><span>Memory & Matching</span><span>80</span></a></li>
-                  <li><a href="#"><span>Christmas</span><span>31</span></a></li>
-                  <li><a href="#"><span>Busy Books & Pads</span><span>55</span></a></li>
-                </ul>
-              </li>
-              <li><a href="javascript: void(0)" class="mad-slide"><span>Toys & Entertainment</span><span>297</span></a>
-                <ul class="mad-slide-content">
-                  <li><a href="#"><span>Stuffed Toys</span><span>54</span></a></li>
-                  <li><a href="#"><span>Shapes & Colors</span><span>48</span></a></li>
-                  <li><a href="#"><span>Numbers & Letters</span><span>29</span></a></li>
-                  <li><a href="#"><span>Memory & Matching</span><span>80</span></a></li>
-                  <li><a href="#"><span>Christmas</span><span>31</span></a></li>
-                  <li><a href="#"><span>Busy Books & Pads</span><span>55</span></a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="mad-widget">
-            <h6 class="mad-widget-title">Products</h6>
-            <div class="mad-products mad-product-small">
-              <div class="mad-col"> -->
-                <!-- Product -->
-                <!-- <div class="mad-product">
-                  <a href="#" class="mad-product-image">
-                    <img src="images/70x70_product3.jpg" alt="">
-                  </a> -->
-                  <!-- product-info -->
-                  <!-- <div class="mad-product-description">
-                    <h5 class="mad-product-title"><a href="#">Set of 3 Uno Rings</a></h5>
-                    <span class="mad-product-price">$144.00</span>
-                  </div> -->
-                  <!--/ product-info -->
-               <!--  </div> -->
-                <!-- End of Product -->
-              <!-- </div>
-              <div class="mad-col"> -->
-                <!-- Product -->
-                <!-- <div class="mad-product">
-                  <a href="#" class="mad-product-image">
-                    <img src="images/70x70_product1.jpg" alt="">
-                  </a> -->
-                  <!-- product-info -->
-                 <!--  <div class="mad-product-description">
-                    <h5 class="mad-product-title"><a href="#">Cosy Toddler Pillow</a></h5>
-                    <span class="mad-product-price">$57.00</span>
-                  </div> -->
-                  <!--/ product-info -->
-                <!-- </div> -->
-                <!-- End of Product -->
-              <!-- </div>
-              <div class="mad-col"> -->
-                <!-- Product -->
-               <!--  <div class="mad-product">
-                  <a href="#" class="mad-product-image">
-                    <img src="images/70x70_product2.jpg" alt="">
-                  </a> -->
-                  <!-- product-info -->
-                  <!-- <div class="mad-product-description">
-                    <h5 class="mad-product-title"><a href="#">Steel Coffee Table</a></h5>
-                    <span class="mad-product-price"><span>$539.00</span> $499.00</span>
-                  </div> -->
-                  <!--/ product-info -->
-               <!--  </div> -->
-                <!-- End of Product -->
-             <!--  </div>
-            </div>
-          </div>
-        </aside> -->
+        
       </div>
     </div>
   </div>

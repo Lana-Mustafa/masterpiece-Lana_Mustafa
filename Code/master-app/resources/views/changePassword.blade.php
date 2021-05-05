@@ -4,7 +4,7 @@
 <div class="mad-breadcrumb">
     <div class="container">
         <h1 class="mad-page-title mad-title-with-line">Change Password</h1>
-        <nav class="mad-breadcrumb-path"><span><a href="index.html">Home</a></span>/<span>Change Password</span>
+        <nav class="mad-breadcrumb-path"><span><a href={{route('landingPage')}}>Home</a></span>/<span>Change Password</span>
         </nav>
     </div>
   </div>

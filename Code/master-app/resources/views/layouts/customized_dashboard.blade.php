@@ -3,13 +3,17 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="author" content="Kraftangle" />
+  <!--the viewport to make your website look good on all devices-->
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta name="description" content="Customized dashboard for suppliers to manage their products  especially for handmade products. " />
+  <meta name="keyword" content="dashboard ,customized, e-commerce,handmade,craft  " />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-     Dashboard 
+    Customized Dashboard for Supplier
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Extra details for Live View on GitHub Pages -->
   <!-- Canonical SEO -->
   <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro" />
@@ -35,6 +39,8 @@
   <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg" />
   <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design." />
   <meta property="og:site_name" content="Creative Tim" />
+  
+  
   @yield('style')
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -138,11 +144,11 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
+                {{-- <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
-                </button>
+                </button> --}}
               </div>
             </form>
             <ul class="navbar-nav"> 
@@ -178,18 +184,17 @@
               @yield('main-content')
             </div>
             </div>
-                
-                 
-                 
+
                   <footer class="footer">
                     <div class="container-fluid justify-content-center">
                       
                       <div class="copyright">
+                        Copyright Kraftangle 
                         &copy;
                         <script>
                           document.write(new Date().getFullYear())
-                        </script>, made with <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+                        </script> 
+                        All Rights Reserved.
                       </div>
                     </div>
                   </footer>
@@ -258,12 +263,12 @@
                     <li class="header-title">Images</li>
                     <li class="active">
                       <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="{{ asset('dashboard-assets/img/sidebar-1.jpg')}}" alt="">
+                        <img src="{{ asset('dashboard-assets/img/sidebar-1.jpg')}}" alt="sidebar_img">
                       </a>
                     </li>
                     <li>
                       <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="{{ asset('dashboard-assets/img/sidebar-2.jpg')}}" alt="">
+                        <img src="{{ asset('dashboard-assets/img/sidebar-2.jpg')}}" alt="sidebar_img">
                       </a>
                     </li>
                     <li>
@@ -617,9 +622,7 @@
 
                 });
               </script>
-              <noscript>
-                <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" />
-              </noscript>
+        
               <script>
                 $(document).ready(function() {
                   // Javascript method's body can be found in assets/js/demos.js

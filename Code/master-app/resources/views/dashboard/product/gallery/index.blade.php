@@ -29,7 +29,7 @@
                   <tr>
                     
                     <td>{{$img->id}}</td>
-                    <td><img src="/images/products/{{$img->name}}" class="rounded img-thumbnail" width="120vw" height="120vh" /></td>
+                    <td><img src="/images/products/{{$img->name}}" alt="{{$img->name}}" class="rounded img-thumbnail" width="120vw" height="120vh" /></td>
             
                     <td class="td-actions">
                         <a href="{{route('gallery.edit',$img->id)}} "class="btn btn-success btn-lg " tabindex="-1" role="button" aria-disabled="true">

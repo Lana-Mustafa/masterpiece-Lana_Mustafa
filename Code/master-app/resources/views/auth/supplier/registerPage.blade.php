@@ -104,9 +104,7 @@ Register Page
                           </span>
                         </div>
                         
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Description..." name="description"  required autocomplete="description" >
-                          {{ old('description') }}
-                        </textarea>
+                        <textarea value="{{ old('description') }}" class="form-control @error('description') is-invalid @enderror" rows="2" cols="33" placeholder="Description..." name="description"  required autocomplete="description" ></textarea>
                           @error('description')
                              <span class="invalid-feedback" role="alert">
                                  <strong>{{ $message }}</strong>

@@ -29,7 +29,7 @@
                   <tr>
                     
                     <td>{{$category->id}}</td>
-                    <td><img src="/images/categories/{{ $category->category_img }}" class="rounded img-thumbnail" width="120vw" height="120vh" /></td>
+                    <td><img src="/images/categories/{{ $category->category_img }}" class="rounded img-thumbnail" alt="{{$category->category_name}}" width="120vw" height="120vh" /></td>
                     <td>{{$category->category_name}}</td> 
                     <td class="td-actions">
                       <button type="button" rel="tooltip" class="btn btn-success" data-toggle="modal" data-target="#category_{{$category->id}}">
@@ -72,7 +72,7 @@
                                             <h4 class="title"style="color:#9C9C9C " >Category Image</h4>
                                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                               <div class="fileinput-new thumbnail">
-                                                <img src="/images/categories/{{ $category->category_img }}" alt="...">
+                                                <img src="/images/categories/{{ $category->category_img }}" alt="{{$category->category_name}}">
                                               </div>
                                               <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                               <div>

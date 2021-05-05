@@ -22,10 +22,12 @@ class CreateProductsTable extends Migration
             $table->longText('product_description');
             $table->string('product_qty');
             $table->boolean('status')->nullable();
+            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('supplier_id');
             $table->unsignedBigInteger('gift_id');
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('gift_id')->references('id')->on('gifts')->onUpdate('cascade')->onDelete('cascade');

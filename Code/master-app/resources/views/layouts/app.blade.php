@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="author" content="Kraftangle" />
+   <!--the viewport to make your website look good on all devices-->
+   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+   <meta name="description" content="Login and Register for Kraftangle project. " />
+   <meta name="keyword" content="dashboard ,customized, e-commerce,handmade,craft ,login , register ,security  " />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

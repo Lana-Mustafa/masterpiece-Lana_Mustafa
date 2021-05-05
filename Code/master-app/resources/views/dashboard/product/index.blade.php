@@ -16,14 +16,15 @@
                 <thead>
                   <tr>
                    
-                    <th>Id</th>
+                    
                     <th>Image</th>
                     <th>Name</th>
                     <th>Supplier</th>
+                    <th>Category</th>
                     <th>Subcategory</th>
                     <th>Gift For </th>
-                    <th>description</th>
-                    <th>qty</th>
+                    <th>Description</th>
+                    <th>Qty</th>
                     <th>Price</th>
                     <th>Sale Price</th>
                     <th>Approve</th>
@@ -36,10 +37,11 @@
                 <tbody>
                     @foreach ($products as $product)
                   <tr>
-                    <td>{{$product->id}}</td>
-                    <td><img src="/images/products/{{$product->product_img}}" class="rounded img-thumbnail" width="120vw" height="120vh" /></td>
+                    
+                    <td><img src="/images/products/{{$product->product_img}}" alt="{{$product->product_name}}" class="rounded img-thumbnail" width="120vw" height="120vh" /></td>
                     <td>{{$product->product_name}}</td> 
                     <td>{{$product->supplier->name}}</td> 
+                    <td>{{$product->category->category_name}}</td> 
                     <td>{{$product->subcategory->subcategory_name}}</td> 
                     <td>{{$product->gift->giftFor}}</td> 
                     <td>{{$product->product_description}}</td> 
@@ -84,5 +86,5 @@
       </div>
     </div>
   </div>
-
+  {{$products->links()}}
 @endsection

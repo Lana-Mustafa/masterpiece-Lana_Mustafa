@@ -14,7 +14,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::paginate(2);
+        $orders->transform( function( $order, $key) {
+            $order->cart = unserialize($order->cart);
+            return $order;
+
+        });
+        return view('dashboard.order.index', compact('orders'));
+
     }
 
     /**

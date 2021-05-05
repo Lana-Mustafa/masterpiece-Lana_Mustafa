@@ -8,7 +8,7 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                   
-                    <img class="img" src="/images/admin.png" />
+                    <img class="img" src="/images/admin.png" alt="admin_img" />
                   
                 </div>
                 <div class="card-body">

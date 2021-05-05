@@ -28,12 +28,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
-    public function orders (){
+    public function orders(){
 
         return $this->hasMany( Order::class ,'user_id');
         
     }
+   
+
 
     /**
      * The attributes that should be cast to native types.
@@ -48,5 +49,7 @@ class User extends Authenticatable
     {
        $this->attributes['password'] = bcrypt($password);
     }
+
+
 
 }

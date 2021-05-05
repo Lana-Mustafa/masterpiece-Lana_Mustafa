@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderByDesc('id')->get();
+        $products = Product::orderByDesc('id')->paginate(6);
         return view('dashboard.product.index', compact('products'));
     }
 
@@ -77,8 +77,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
-    {
-       
+    {    
         if ($request->hasFile('product_img')) {
             //save photo in to folder
             $file_name = $request->product_img->getClientOriginalName();
@@ -95,6 +94,7 @@ class ProductController extends Controller
         $product->sale_price             = $request->input('sale_price');
         $product->product_description    = $request->input('product_description');
         $product->product_qty            = $request->input('product_qty');
+        $product->category_id            = $request->input('category_id');
         $product->subcategory_id         = $request->input('subcategory_id');
         $product->gift_id                = $request->input('gift_id');
         $product->status                 = $request->input('status');

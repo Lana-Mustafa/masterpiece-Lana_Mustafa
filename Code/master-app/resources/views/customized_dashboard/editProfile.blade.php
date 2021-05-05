@@ -41,7 +41,7 @@
                 <div class="col-md-3 col-sm-4">
                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                       <div class="fileinput-new thumbnail img-circle">
-                        <img src="/images/suppliers/{{Auth::user()->img}}" alt="...">
+                        <img src="/images/suppliers/{{Auth::user()->img}}" alt="supplier_img">
                       </div>
                       <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                       <div>
